@@ -1,0 +1,39 @@
+# Archivos de salida de los scripts
+*.txt
+*.csv
+*.log
+*.out
+
+# Excepto archivos de documentación
+!README.txt
+!LICENSE.txt
+
+# Archivos temporales
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+
+# Wordlists grandes (no subir a GitHub)
+wordlist_*.txt
+wordlists/
+
+# Resultados de escaneos
+resultados/
+informes/
+scans/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+*.bak
+
+# Directorios de IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Archivos de configuración local
+config.local
+.env
