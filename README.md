@@ -4,161 +4,161 @@
 [![Bash](https://img.shields.io/badge/Bash-4.0%2B-green.svg)](https://www.gnu.org/software/bash/)
 [![Platform](https://img.shields.io/badge/Platform-Linux-blue.svg)](https://www.linux.org/)
 
-**Autor**: Manuel Sánchez Gutiérrez  
-**Fecha**: Octubre 2024  
-**Propósito**: Herramienta educativa de OSINT para enumeración de subdominios
+**Author**: Manuel Sánchez Gutiérrez  
+**Date**: October 2024  
+**Purpose**: Educational OSINT tool for subdomain enumeration
 
 ---
 
-## 📋 Descripción
+## 📋 Description
 
-**Subdomain Enumerator** es una herramienta de línea de comandos escrita en Bash para descubrir subdominios de un dominio objetivo mediante fuerza bruta DNS. Desarrollada como parte de mi formación en **Administración de Sistemas Informáticos en Red (ASIR)** y mi especialización en **ciberseguridad**.
+**Subdomain Enumerator** is a command-line tool written in Bash to discover subdomains of a target domain through DNS brute-force. Developed as part of my training in **Network Systems Administration (ASIR)** and my specialization in **cybersecurity**.
 
-Esta herramienta es esencial en la fase de reconocimiento (OSINT) de un pentesting, permitiendo mapear la superficie de ataque de una organización.
-
----
-
-## ✨ Características
-
-- ✅ **Enumeración por fuerza bruta DNS** usando el comando `host`
-- ✅ **Wordlist personalizable** o wordlist por defecto incluido
-- ✅ **Detección de registros CNAME** (alias de dominio)
-- ✅ **Resolución de IPs** para cada subdominio encontrado
-- ✅ **Procesamiento concurrente** (hasta 20 hilos simultáneos)
-- ✅ **Exportación de resultados** a formato CSV
-- ✅ **Interfaz colorida** para mejor visualización
-- ✅ **Validación de dominio** antes de iniciar el escaneo
-- ✅ **Wordlist por defecto** con 50+ subdominios comunes
+This tool is essential in the reconnaissance (OSINT) phase of pentesting, allowing you to map an organization's attack surface.
 
 ---
 
-## 🚀 Instalación
+## ✨ Features
 
-### Requisitos
+- ✅ **DNS brute-force enumeration** using the `host` command
+- ✅ **Customizable wordlist** or included default wordlist
+- ✅ **CNAME record detection** (domain aliases)
+- ✅ **IP resolution** for each subdomain found
+- ✅ **Concurrent processing** (up to 20 simultaneous threads)
+- ✅ **Results export** to CSV format
+- ✅ **Colorful interface** for better visualization
+- ✅ **Domain validation** before starting the scan
+- ✅ **Default wordlist** with 50+ common subdomains
 
-- Sistema operativo: Linux (Ubuntu, Debian, Kali Linux, etc.)
-- Bash 4.0 o superior
-- Paquete `dnsutils` (comando `host`)
+---
 
-### Pasos
+## 🚀 Installation
 
-1. Clonar el repositorio:
+### Requirements
+
+- Operating system: Linux (Ubuntu, Debian, Kali Linux, etc.)
+- Bash 4.0 or higher
+- `dnsutils` package (`host` command)
+
+### Steps
+
+1. Clone the repository:
 ```bash
-git clone https://github.com/tuusuario/subdomain-enumerator.git
+git clone https://github.com/yourusername/subdomain-enumerator.git
 cd subdomain-enumerator
 ```
 
-2. Instalar dependencias:
+2. Install dependencies:
 ```bash
 sudo apt-get update
 sudo apt-get install dnsutils
 ```
 
-3. Dar permisos de ejecución:
+3. Grant execution permissions:
 ```bash
 chmod +x subdomain_enum.sh
 ```
 
-4. ¡Listo para usar!
+4. Ready to use!
 
 ---
 
-## 💻 Uso
+## 💻 Usage
 
-### Sintaxis Básica
+### Basic Syntax
 
 ```bash
-./subdomain_enum.sh -d <dominio>
+./subdomain_enum.sh -d <domain>
 ```
 
-### Opciones
+### Options
 
-| Opción | Descripción | Ejemplo |
+| Option | Description | Example |
 |--------|-------------|---------|
-| `-d, --domain DOMINIO` | Dominio objetivo (obligatorio) | `-d ejemplo.com` |
-| `-w, --wordlist ARCHIVO` | Archivo wordlist personalizado | `-w subdominios.txt` |
-| `-o, --output ARCHIVO` | Guardar resultados en CSV | `-o resultados.csv` |
-| `-t, --threads NUM` | Número de hilos (default: 20) | `-t 50` |
-| `-h, --help` | Mostrar ayuda | `-h` |
+| `-d, --domain DOMAIN` | Target domain (required) | `-d example.com` |
+| `-w, --wordlist FILE` | Custom wordlist file | `-w subdomains.txt` |
+| `-o, --output FILE` | Save results to CSV | `-o results.csv` |
+| `-t, --threads NUM` | Number of threads (default: 20) | `-t 50` |
+| `-h, --help` | Show help | `-h` |
 
-### Ejemplos de Uso
+### Usage Examples
 
-**Enumeración básica con wordlist por defecto:**
+**Basic enumeration with default wordlist:**
 ```bash
-./subdomain_enum.sh -d ejemplo.com
+./subdomain_enum.sh -d example.com
 ```
 
-**Enumeración con wordlist personalizado:**
+**Enumeration with custom wordlist:**
 ```bash
-./subdomain_enum.sh -d ejemplo.com -w mi_wordlist.txt
+./subdomain_enum.sh -d example.com -w my_wordlist.txt
 ```
 
-**Enumeración y guardar resultados:**
+**Enumeration and save results:**
 ```bash
-./subdomain_enum.sh -d ejemplo.com -o subdominios_encontrados.csv
+./subdomain_enum.sh -d example.com -o subdomains_found.csv
 ```
 
-**Enumeración rápida con más hilos:**
+**Fast enumeration with more threads:**
 ```bash
-./subdomain_enum.sh -d ejemplo.com -t 50 -o resultados.csv
+./subdomain_enum.sh -d example.com -t 50 -o results.csv
 ```
 
 ---
 
-## 📊 Salida de Ejemplo
+## 📊 Example Output
 
 ```
 ╔═══════════════════════════════════════════════════════════╗
-║      SUBDOMAIN ENUMERATOR - Descubrimiento de Subdominios ║
-║                   Uso Ético Únicamente                    ║
+║      SUBDOMAIN ENUMERATOR - Subdomain Discovery          ║
+║                   Ethical Use Only                        ║
 ╚═══════════════════════════════════════════════════════════╝
 
-[!] No se especificó wordlist, usando uno por defecto
-[*] Dominio objetivo: ejemplo.com
-[*] Wordlist: /tmp/subdomain_wordlist_12345.txt (52 palabras)
-[*] Procesos concurrentes: 20
-[*] Inicio: 2024-10-28 15:45:30
+[!] No wordlist specified, using default one
+[*] Target domain: example.com
+[*] Wordlist: /tmp/subdomain_wordlist_12345.txt (52 words)
+[*] Concurrent processes: 20
+[*] Start: 2024-10-28 15:45:30
 ============================================================
-[*] Verificando dominio principal...
-[+] Dominio principal verificado
+[*] Verifying main domain...
+[+] Main domain verified
 
-[*] Enumerando subdominios...
+[*] Enumerating subdomains...
 
-[+] www.ejemplo.com -> 93.184.216.34
-[+] mail.ejemplo.com -> 93.184.216.35
-    └─ CNAME: mail.hosting.ejemplo.net.
-[+] ftp.ejemplo.com -> 93.184.216.36
-[+] blog.ejemplo.com -> 93.184.216.37
-[+] api.ejemplo.com -> 93.184.216.38
-[+] dev.ejemplo.com -> 93.184.216.39
+[+] www.example.com -> 93.184.216.34
+[+] mail.example.com -> 93.184.216.35
+    └─ CNAME: mail.hosting.example.net.
+[+] ftp.example.com -> 93.184.216.36
+[+] blog.example.com -> 93.184.216.37
+[+] api.example.com -> 93.184.216.38
+[+] dev.example.com -> 93.184.216.39
 
 ============================================================
-[*] Enumeración completada en 8.45 segundos
-[*] Subdominios encontrados: 6/52
-[*] Resultados guardados en: subdominios_encontrados.csv
+[*] Enumeration completed in 8.45 seconds
+[*] Subdomains found: 6/52
+[*] Results saved to: subdomains_found.csv
 
-[!] Disclaimer: Esta herramienta es solo para uso educativo y ético.
-[!] Obtén autorización antes de enumerar cualquier dominio.
+[!] Disclaimer: This tool is for educational and ethical use only.
+[!] Obtain authorization before enumerating any domain.
 ```
 
 ---
 
-## 🔧 Funcionamiento Técnico
+## 🔧 Technical Operation
 
-### Método de Enumeración
+### Enumeration Method
 
-El script utiliza el comando `host` para realizar consultas DNS:
+The script uses the `host` command to perform DNS queries:
 
 ```bash
 host -W 2 "$full_domain" 2>/dev/null | grep "has address"
 ```
 
-- `-W 2`: Timeout de 2 segundos por consulta
-- `grep "has address"`: Filtra solo registros A (IPv4)
+- `-W 2`: 2-second timeout per query
+- `grep "has address"`: Filters only A records (IPv4)
 
-### Wordlist Por Defecto
+### Default Wordlist
 
-Si no se especifica un wordlist, el script genera uno automáticamente con subdominios comunes:
+If no wordlist is specified, the script automatically generates one with common subdomains:
 
 ```
 www, mail, ftp, smtp, pop, imap, webmail, admin, blog, dev, test,
@@ -167,9 +167,9 @@ dashboard, cpanel, ns1, ns2, dns, mx, shop, store, forum, support,
 help, docs, wiki, cdn, static, assets, media, files, backup, ...
 ```
 
-### Procesamiento Concurrente
+### Concurrent Processing
 
-Para acelerar la enumeración, el script ejecuta múltiples consultas DNS en paralelo:
+To speed up enumeration, the script runs multiple DNS queries in parallel:
 
 ```bash
 check_subdomain "$subdomain" "$domain" &
@@ -181,123 +181,123 @@ fi
 
 ---
 
-## 📚 Casos de Uso
+## 📚 Use Cases
 
-### 1. Reconocimiento en Pentesting (OSINT)
+### 1. Pentesting Reconnaissance (OSINT)
 
-Mapear la superficie de ataque de un dominio objetivo:
+Map the attack surface of a target domain:
 
 ```bash
 ./subdomain_enum.sh -d target.com -w /usr/share/wordlists/subdomains.txt -o recon.csv
 ```
 
-### 2. Auditoría de Seguridad Corporativa
+### 2. Corporate Security Audit
 
-Identificar subdominios olvidados o no documentados en tu propia organización:
+Identify forgotten or undocumented subdomains in your own organization:
 
 ```bash
-./subdomain_enum.sh -d miempresa.com -o auditoria_subdominios.csv
+./subdomain_enum.sh -d mycompany.com -o subdomain_audit.csv
 ```
 
 ### 3. Bug Bounty
 
-Descubrir subdominios no listados en el alcance de un programa de bug bounty:
+Discover subdomains not listed in a bug bounty program's scope:
 
 ```bash
-./subdomain_enum.sh -d bugbounty-target.com -w wordlist_grande.txt
+./subdomain_enum.sh -d bugbounty-target.com -w large_wordlist.txt
 ```
 
-### 4. Investigación de Infraestructura
+### 4. Infrastructure Research
 
-Analizar la infraestructura de una organización:
+Analyze an organization's infrastructure:
 
 ```bash
-./subdomain_enum.sh -d universidad.edu -o infraestructura.csv
+./subdomain_enum.sh -d university.edu -o infrastructure.csv
 ```
 
 ---
 
-## ⚠️ Disclaimer Legal
+## ⚠️ Legal Disclaimer
 
-**IMPORTANTE**: Esta herramienta es exclusivamente para fines educativos y de pentesting ético.
+**IMPORTANT**: This tool is exclusively for educational purposes and ethical pentesting.
 
-- ✅ **Permitido**: Usar en tus propios dominios, dominios con permiso explícito, plataformas de bug bounty autorizadas
-- ❌ **Prohibido**: Enumerar dominios de terceros sin autorización
+- ✅ **Allowed**: Use on your own domains, domains with explicit permission, authorized bug bounty platforms
+- ❌ **Prohibited**: Enumerate third-party domains without authorization
 
-La enumeración de subdominios puede ser considerada reconocimiento hostil en algunas jurisdicciones. El autor **NO se hace responsable** del uso indebido de esta herramienta.
+Subdomain enumeration may be considered hostile reconnaissance in some jurisdictions. The author is **NOT responsible** for misuse of this tool.
 
-**Siempre obtén autorización por escrito antes de enumerar dominios que no sean de tu propiedad.**
-
----
-
-## 🎓 Contexto Educativo
-
-Este proyecto fue desarrollado como parte de mi formación en:
-
-- **Grado Superior en Administración de Sistemas Informáticos en Red (ASIR)** - UNIR
-- **Certificación eJPT v2** (Junior Penetration Tester) - INE Security
-- **Formación en Pentesting Ético** - Hack4u
-
-### Conocimientos Demostrados
-
-- ✅ Scripting avanzado en Bash
-- ✅ Comprensión del sistema DNS
-- ✅ Técnicas de OSINT (Open Source Intelligence)
-- ✅ Reconocimiento pasivo y activo
-- ✅ Procesamiento concurrente en shell
-- ✅ Metodologías de pentesting
+**Always obtain written authorization before enumerating domains you don't own.**
 
 ---
 
-## 🔄 Comparación con Otras Herramientas
+## 🎓 Educational Context
 
-| Característica | Subdomain Enum (Bash) | Sublist3r | Amass |
-|----------------|----------------------|-----------|-------|
-| Método | Fuerza bruta DNS | Múltiples fuentes | Múltiples técnicas |
-| Velocidad | Media | Rápida | Muy completa |
-| Fuentes | Solo DNS | OSINT + DNS | OSINT + DNS + Scraping |
-| Dependencias | dnsutils | Python + libs | Go |
-| Tamaño | ~7 KB | ~500 KB | ~50 MB |
-| Propósito | Educativo | Profesional | Profesional avanzado |
+This project was developed as part of my training in:
 
-**¿Cuándo usar este script?**
-- Aprendizaje de conceptos de enumeración DNS
-- Entornos con recursos limitados
-- Scripts personalizados de automatización
-- Cuando solo necesitas fuerza bruta DNS simple
+- **Higher Degree in Network Systems Administration (ASIR)** - UNIR
+- **eJPT v2 Certification** (Junior Penetration Tester) - INE Security
+- **Ethical Pentesting Training** - Hack4u
 
----
+### Demonstrated Skills
 
-## 🛠️ Mejoras Futuras
-
-- [ ] Soporte para registros AAAA (IPv6)
-- [ ] Integración con APIs de OSINT (VirusTotal, SecurityTrails)
-- [ ] Detección de subdominios con wildcard DNS
-- [ ] Exportación a formatos JSON y XML
-- [ ] Verificación de certificados SSL/TLS (Certificate Transparency)
-- [ ] Modo recursivo (enumerar subdominios de subdominios)
-- [ ] Integración con herramientas de escaneo de puertos
+- ✅ Advanced Bash scripting
+- ✅ Understanding of DNS system
+- ✅ OSINT techniques (Open Source Intelligence)
+- ✅ Passive and active reconnaissance
+- ✅ Concurrent processing in shell
+- ✅ Pentesting methodologies
 
 ---
 
-## 📖 Recursos de Aprendizaje
+## 🔄 Comparison with Other Tools
 
-Si quieres aprender más sobre enumeración de subdominios y OSINT:
+| Feature | Subdomain Enum (Bash) | Sublist3r | Amass |
+|---------|----------------------|-----------|-------|
+| Method | DNS brute-force | Multiple sources | Multiple techniques |
+| Speed | Medium | Fast | Very comprehensive |
+| Sources | DNS only | OSINT + DNS | OSINT + DNS + Scraping |
+| Dependencies | dnsutils | Python + libs | Go |
+| Size | ~7 KB | ~500 KB | ~50 MB |
+| Purpose | Educational | Professional | Advanced professional |
 
-- **Herramientas profesionales**: Sublist3r, Amass, Subfinder, Assetfinder
-- **Plataformas de práctica**: HackTheBox, TryHackMe, PentesterLab
+**When to use this script?**
+- Learning DNS enumeration concepts
+- Resource-limited environments
+- Custom automation scripts
+- When you only need simple DNS brute-force
+
+---
+
+## 🛠️ Future Improvements
+
+- [ ] AAAA record support (IPv6)
+- [ ] Integration with OSINT APIs (VirusTotal, SecurityTrails)
+- [ ] Wildcard DNS subdomain detection
+- [ ] Export to JSON and XML formats
+- [ ] SSL/TLS certificate verification (Certificate Transparency)
+- [ ] Recursive mode (enumerate subdomains of subdomains)
+- [ ] Integration with port scanning tools
+
+---
+
+## 📖 Learning Resources
+
+If you want to learn more about subdomain enumeration and OSINT:
+
+- **Professional tools**: Sublist3r, Amass, Subfinder, Assetfinder
+- **Practice platforms**: HackTheBox, TryHackMe, PentesterLab
 - **Wordlists**: SecLists (GitHub), DNSRecon wordlists
-- **Libros**: "OSINT Techniques" de Michael Bazzell
-- **Cursos**: Hack4u, TCM Security, Offensive Security
+- **Books**: "OSINT Techniques" by Michael Bazzell
+- **Courses**: Hack4u, TCM Security, Offensive Security
 
 ---
 
-## 📝 Crear tu Propio Wordlist
+## 📝 Creating Your Own Wordlist
 
-Para crear un wordlist personalizado, crea un archivo de texto con un subdominio por línea:
+To create a custom wordlist, create a text file with one subdomain per line:
 
 ```bash
-cat > mi_wordlist.txt << EOF
+cat > my_wordlist.txt << EOF
 www
 mail
 admin
@@ -308,48 +308,48 @@ api
 EOF
 ```
 
-Luego úsalo:
+Then use it:
 ```bash
-./subdomain_enum.sh -d ejemplo.com -w mi_wordlist.txt
+./subdomain_enum.sh -d example.com -w my_wordlist.txt
 ```
 
 ---
 
-## 🔍 Técnicas Complementarias
+## 🔍 Complementary Techniques
 
-La enumeración de subdominios es solo una parte del reconocimiento. Combínala con:
+Subdomain enumeration is just one part of reconnaissance. Combine it with:
 
-1. **Google Dorking**: `site:ejemplo.com`
+1. **Google Dorking**: `site:example.com`
 2. **Certificate Transparency**: crt.sh, censys.io
-3. **Reverse DNS**: Enumerar rangos de IPs
-4. **Web scraping**: Buscar enlaces en páginas públicas
-5. **APIs públicas**: VirusTotal, SecurityTrails, Shodan
+3. **Reverse DNS**: Enumerate IP ranges
+4. **Web scraping**: Search for links on public pages
+5. **Public APIs**: VirusTotal, SecurityTrails, Shodan
 
 ---
 
-## 📧 Contacto
+## 📧 Contact
 
 **Manuel Sánchez Gutiérrez**  
 - Email: manoloadra2@gmail.com  
 - LinkedIn: [linkedin.com/in/manuel-sanchez-gutierrez](https://www.linkedin.com/in/manuel-sánchez-gutiérrez-b534ab336/)  
-- GitHub: [github.com/tuusuario](https://github.com/tuusuario)
+- GitHub: [github.com/yourusername](https://github.com/yourusername)
 
 ---
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
----
-
-## 🌟 Agradecimientos
-
-- A la comunidad de OSINT por compartir conocimientos
-- A los creadores de Sublist3r y Amass por inspirar esta herramienta
-- A Hack4u por la formación en pentesting ético
+This project is under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ---
 
-**Recuerda**: La información es poder, pero la ética es responsabilidad. Usa esta herramienta de forma legal y responsable.
+## 🌟 Acknowledgments
+
+- To the OSINT community for sharing knowledge
+- To the creators of Sublist3r and Amass for inspiring this tool
+- To Hack4u for ethical pentesting training
+
+---
+
+**Remember**: Information is power, but ethics is responsibility. Use this tool legally and responsibly.
 
 *"Information gathering is the foundation of a successful pentest."*
