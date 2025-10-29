@@ -44,7 +44,7 @@ This tool is essential in the reconnaissance (OSINT) phase of pentesting, allowi
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/subdomain-enumerator.git
+git clone https://github.com/Elabdera/subdomain-enumerator.git
 cd subdomain-enumerator
 ```
 
@@ -331,8 +331,8 @@ Subdomain enumeration is just one part of reconnaissance. Combine it with:
 
 **Manuel Sánchez Gutiérrez**  
 - Email: manoloadra2@gmail.com  
-- LinkedIn: [linkedin.com/in/manuel-sanchez-gutierrez](https://www.linkedin.com/in/manuel-sánchez-gutiérrez-b534ab336/)  
-- GitHub: [github.com/yourusername](https://github.com/yourusername)
+- LinkedIn: [linkedin.com/in/manuel-sanchez-gutierrez](https://www.linkedin.com/in/manuel-sanchez-gutierrez-b534ab336/)  
+- GitHub: [github.com/Elabdera](https://github.com/Elabdera)
 
 ---
 
